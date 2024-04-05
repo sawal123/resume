@@ -1,0 +1,1 @@
+<a href="{{route('edit', $model->id)}}">Edit</a>
