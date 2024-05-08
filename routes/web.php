@@ -3,8 +3,9 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Dashboard\AddProject;
 use Illuminate\Support\Facades\Route;
-
+use Livewire\Livewire;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,8 @@ Route::get('/', [Controller::class, 'index'])->name('index');
 // Route::get('/', [Controller::class, 'index'])->name('index');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/add-project',AddProject::class)->middleware(['auth', 'verified'])->name('add-project');
+Route::get('/add-project', [DashboardController::class, 'addProject'])->middleware(['auth', 'verified'])->name('addProject');
 
 Route::middleware('auth')->group(function () {
     Route::get('/{id}/edit', [DashboardController::class, 'edit'])->name('edit');

@@ -20,6 +20,11 @@ class DashboardController extends Controller
         }
         return view('dashboard');
     }
+
+    public function addProject(){
+        return view('addPro');
+    }
+
     public function data()
     {
         return DataTablesDataTables::of(User::query())->addColumn('yes', 'components.button-edit')->make(true);

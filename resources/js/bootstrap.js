@@ -7,7 +7,7 @@
 import axios from 'axios';
 // import aos from 'aos';
 // import * as Popper from '@popp'
-import 'bootstrap'
+// import 'bootstrap'
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

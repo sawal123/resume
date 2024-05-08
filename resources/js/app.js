@@ -1,7 +1,7 @@
-import './bootstrap';
+// import './bootstrap';
 import '@fortawesome/fontawesome-free/js/fontawesome';
-import 'bootstrap/dist/js/bootstrap';
-import 'bootstrap/dist/js/bootstrap.bundle';
+// import 'bootstrap/dist/js/bootstrap';
+// import 'bootstrap/dist/js/bootstrap.bundle';
 import '@popperjs/core/dist/cjs/popper';
 import '@popperjs/core/dist/umd/popper';
 

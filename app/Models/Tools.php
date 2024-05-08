@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Tools extends Model
 {
     use HasFactory;
-    protected $fillable =['id','name', 'tools', 'link', 'thumbnail', 'slug'];
+    protected $fillable = ['id','name', 'icon'];
 }
