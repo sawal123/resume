@@ -16,28 +16,34 @@ class Projek extends Component
 
     public $name = '';
     public $link = '';
-    public $select= '';
-    #[Validate('image|max:1024')] // 1MB Max
-    public $thumbnail = '';
+    public $select = [];
+    #[Validate('image|max:5000')] 
+    public $thumbnail;
 
 
 
     public function save()
     {
-        $toolsJson = json_encode($this->select);
-        dd($this->select);
-        $projek = Project::create(
-            [
-                'id' => Str::uuid(),
-                'name' => $this->name,
-                'tools' =>  $toolsJson,
-                'link' => $this->link,
-                'thumbnail' => $this->thumbnail,
-                'slug'=> Str::slug($this->name)
-            ]
-        );
-        $this->reset(['name', 'link', 'select', 'thumbnail']);
-    }
+
+
+        $projek = new Project();
+        $projek->uuid = Str::uuid();
+        $projek->name = $this->name;
+        $projek->tools = json_encode($this->select); // Encode select array to JSON
+        $projek->link = $this->link;
+        $projek->slug = Str::slug($this->name);
+
+        if ($this->thumbnail) {
+            // Handle file upload
+            $imageName = 'sawal' . Str::random(4) . '.' . $this->thumbnail->getClientOriginalExtension();
+            $this->thumbnail->storeAs('thumbnails', $imageName, 'public');
+            $projek->thumbnail =  $imageName;
+        }
+
+        $projek->save();
+        session()->flash('message', 'Project successfully saved.');
+        $this->redirect('/dashboard');
+    }   
 
 
     public function mount()

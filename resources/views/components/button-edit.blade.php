@@ -1,1 +1,1 @@
-<a href="{{route('edit', $model->id)}}">Edit</a>
+<a class="btn btn-primary" href="{{route('edit', $uuid)}}">Edit</a>

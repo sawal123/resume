@@ -1,0 +1,1 @@
+<img src="{{ asset('storage/thumbnails/'. $thumbnail) }}" class="h-10 w-10 object-cover rounded-lg" alt="">

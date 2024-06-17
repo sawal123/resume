@@ -79,6 +79,54 @@
                 }
             });
         });
+
+        $(document).ready(function() {
+            $('#myPro').DataTable({
+                prosesing: true,
+                serverside: true,
+                ajax: '{!! route('getProject') !!}',
+                columns: [{
+                        data: null,
+                        render: function(data, type, row, meta) {
+                            return meta.row + 1;
+                        }
+                    },
+
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+
+                    {
+                        data: 'tools',
+                        name: 'tools'
+                    },
+                    {
+                        data: 'link',
+                        name: 'link'
+                    },
+                    {
+                        data: 'thumbnail',
+                        name: 'thumbnail',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'edit',
+                        name: 'edit',
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+
+                createdRow: function(row, data, dataIndex) {
+                    $('td:eq(0)', row).html(dataIndex + 1);
+                }
+            });
+            // Livewire.on('projectDeleted', () => {
+            //     dataTable.ajax.reload(null, false); 
+            // });
+        });
     </script>
 
 </body>

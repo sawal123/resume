@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Tools extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','name', 'icon'];
+    protected $fillable = ['uuid','name', 'icon'];
 }

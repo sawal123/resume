@@ -18,47 +18,47 @@ class Toolseeder extends Seeder
        DB::table('tools')->insert(
           [
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'Javascript',
                 'icon' => 'javascript.svg'
             ],
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'HTML',
                 'icon' => 'html.svg'
             ],
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'laravel',
                 'icon' => 'laravel.svg'
             ],
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'mysql',
                 'icon' => 'mysql.svg'
             ],
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'php',
                 'icon' => 'php.svg'
             ],
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'wordpress',
                 'icon' => 'wordpress.svg'
             ],
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'css',
                 'icon' => 'css.svg'
             ],
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'bootstrap',
                 'icon' => 'bootstrap.svg'
             ],
             [
-                'id'=>Str::uuid(),
+                'uuid'=>Str::uuid(),
                 'name' => 'bledner',
                 'icon' => 'bledner.svg'
             ],
