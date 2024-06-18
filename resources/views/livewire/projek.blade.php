@@ -4,7 +4,7 @@
         @csrf
         <div class="col-md-6">
             <label for="name" class="form-label">Name</label>
-            <input type="text rounded-lg" class="form-control" id="name" wire:model='name'>
+            <input type="text rounded-lg" class="form-control" id="name"  wire:model='name'>
         </div>
         <div class="col-md-6">
             <label for="link" class="form-label">Link</label>

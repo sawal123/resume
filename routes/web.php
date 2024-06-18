@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Livewire\Dashboard\AddProject;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\Pendidikan;
+use App\Livewire\Projek;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 /*
@@ -32,7 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/dashboard/getProject', [Dashboard::class, 'getProjects'])->name('getProject');
 
-    Route::get('/{id}/edit', [DashboardController::class, 'edit'])->name('edit');
+    Route::get('/{uuid}/edit', [Projek::class, 'edit'])->name('edit-project');
+    
     Route::get('/{id}/delete', [DashboardController::class, 'delete'])->name('delete-project');
     Route::get('/data', [DashboardController::class, 'data'])->name('data');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

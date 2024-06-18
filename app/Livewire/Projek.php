@@ -13,6 +13,7 @@ class Projek extends Component
 {
     use WithFileUploads;
     public $tools;
+    public $pro;
 
     public $name = '';
     public $link = '';
@@ -49,9 +50,16 @@ class Projek extends Component
     public function mount()
     {
         $this->tools = Tools::orderBy('name', 'asc')->get();
+        
+    }
+    public function edit($uid){
+        $this->pro = Project::where('uuid', $uid)->first();
+        $this->tools = Tools::orderBy('name', 'asc')->get();
+        return view('livewire.semipage.editPro',['tools'=> $this->tools, 'pro'=>$this->pro]);
     }
     public function render()
     {
+        // dd($uid);
         return view('livewire.projek');
     }
 }

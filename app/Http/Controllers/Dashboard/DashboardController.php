@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function dashboard(Request $request)
     {
 
-      
+
         $projects = Project::all();
         if ($request->ajax()) {
 
@@ -23,14 +23,14 @@ class DashboardController extends Controller
                 ->addColumn('edit', function ($project) {
                     return view('components.button-action', ['uuid' => $project->uuid]);
                 })
-               
+
                 ->addColumn('tools', function ($project) {
                     $tools = json_decode($project->tools);
                     $toolNames = Tools::whereIn('uuid', $tools)->pluck('name')->toArray();
                     return implode(', ', $toolNames);  // You can format this as you like
                 })
-                ->addColumn('thumbnail', function($project){
-                    return view('components.img', ['thumbanail'=> $project->thumbnail]);
+                ->addColumn('thumbnail', function ($project) {
+                    return view('components.img', ['thumbanail' => $project->thumbnail]);
                 })
                 ->rawColumns(['edit', 'tools', 'thumbnail'])
                 ->toJson();
@@ -41,7 +41,7 @@ class DashboardController extends Controller
 
     public function addProject()
     {
-        return view('addPro');
+        return view('livewire.semipage.addPro');
     }
 
     public function data()
@@ -51,10 +51,10 @@ class DashboardController extends Controller
 
     public function edit($id)
     {
-       
-        
+        $pro = Project::where('uuid', $id)->first();
+        return view('livewire.semipage.addPro', ['editpro' => $pro]);
     }
-    
+
 
 
     public function user(Request $request)
